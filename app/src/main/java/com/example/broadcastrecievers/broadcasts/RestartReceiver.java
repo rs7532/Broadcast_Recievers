@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.TextView;
 
 public class RestartReceiver extends BroadcastReceiver {
@@ -17,5 +18,6 @@ public class RestartReceiver extends BroadcastReceiver {
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("counter", counter + 1);
         editor.commit();
+        System.out.println("completed!");
     }
 }

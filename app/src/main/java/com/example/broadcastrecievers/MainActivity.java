@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
         times_headphones = findViewById(R.id.times_headphones_view);
 
         SharedPreferences settings = getSharedPreferences("boot_counter", MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putInt("counter", 0);
-        editor.commit();
 
         String power_str = power.getText().toString();
-        power_str.replace('0', (char) (settings.getInt("counter", 0)));
+        //power_str.replace('0', (char) (settings.getInt("counter", 0)));
+        power_str.substring(power_str.length() - 1);
+        power_str.concat(String.valueOf((settings.getInt("counter", 0))));
         power.setText(power_str);
+
     }
 }
