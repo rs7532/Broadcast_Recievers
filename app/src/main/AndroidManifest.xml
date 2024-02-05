@@ -24,10 +24,6 @@
             android:enabled="true"
             android:exported="true" />
         <receiver
-            android:name=".HeadsetReceiver"
-            android:enabled="true"
-            android:exported="true" />
-        <receiver
             android:name=".broadcasts.RestartReceiver"
             android:enabled="true"
             android:exported="true">
