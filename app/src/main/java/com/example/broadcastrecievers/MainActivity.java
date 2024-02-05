@@ -15,6 +15,7 @@ import com.example.broadcastrecievers.broadcasts.HeadsetReceiver;
 import com.example.broadcastrecievers.broadcasts.times_headsetReceiver;
 
 public class MainActivity extends AppCompatActivity {
+    private final String CUSTOM_ACTION = "com.example.Broadcastrecievers.broadcasts.times_headsetReceiver";
     TextView power, headphones, times_headphones;
     HeadsetReceiver headsetReceiver;
     times_headsetReceiver times_headsetReceiver;
@@ -37,14 +38,15 @@ public class MainActivity extends AppCompatActivity {
         ins = this;
     }
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     @Override
     protected void onStart() {
         headsetReceiver = new HeadsetReceiver();
         IntentFilter headsetFilter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
         registerReceiver(headsetReceiver, headsetFilter);
         times_headsetReceiver = new times_headsetReceiver();
-        IntentFilter times_headsetFilter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
-        registerReceiver(times_headsetReceiver, times_headsetFilter);
+        IntentFilter customFilter = new IntentFilter(CUSTOM_ACTION);
+        registerReceiver(times_headsetReceiver, customFilter);
         super.onStart();
     }
 
